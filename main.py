@@ -13,7 +13,9 @@ from composer import compose
 app = FastAPI()
 
 # Auto-load merchants dataset
-
+@app.get("/")
+def home():
+    return {"message": "Magicpin Vera Bot is running"}
 try:
     with open(
         "dataset/merchants_seed.json",
@@ -131,3 +133,4 @@ def reply(payload: dict):
         "handled": True,
         "next_action": "continue"
     }
+
